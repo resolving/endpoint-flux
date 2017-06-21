@@ -1,6 +1,6 @@
 machine:
   ruby:
     version: 2.3.3
-checkout:
-  post:
+dependencies:
+  pre:
     - gem install bundle
