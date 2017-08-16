@@ -48,9 +48,7 @@ module EndpointFlux
       @middlewares[middleware_name] ||= []
 
       middleware = build_middleware(middleware_name, *attrs, &block)
-      if middleware && !@middlewares[middleware_name].include?(middleware)
-        @middlewares[middleware_name] << middleware
-      end
+      @middlewares[middleware_name] << middleware if middleware
 
       @middlewares[middleware_name]
     end
