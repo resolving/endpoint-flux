@@ -7,8 +7,12 @@ module EndpointFlux
         def present(namespace)
           _, response = endpoint_for(namespace).perform(request_object)
 
-          headers.merge! response.headers
-          render json: response.body
+          if response.redirected?
+            redirect_to *response.redirect
+          else
+            headers.merge! response.headers
+            render json: response.body
+          end
         end
 
         def endpoint_for(namespace)
