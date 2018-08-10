@@ -65,7 +65,7 @@ module EndpointFlux
     def fetch_middleware_class!(name, klass_name)
       klass = fetch_middleware_class(name, klass_name)
 
-      raise "The [#{klass_name}] should be a string representing a class" unless klass
+      raise "The [#{name}][#{klass_name}] should be a string representing a class" unless klass
 
       klass
     end

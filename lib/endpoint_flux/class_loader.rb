@@ -24,9 +24,11 @@ module EndpointFlux
         .gsub('/', '::')
     end
 
-    # File activesupport/lib/active_support/inflector/methods.rb, line 249
     def constantize(camel_cased_word)
-      names = camel_cased_word.split('::')
+      names = camel_cased_word.split("::".freeze)
+
+      # Trigger a built-in NameError exception including the ill-formed constant in the message.
+      Object.const_get(camel_cased_word) if names.empty?
 
       # Remove the first blank element in case of '::ClassName' notation.
       names.shift if names.size > 1 && names.first.empty?
@@ -41,7 +43,7 @@ module EndpointFlux
 
           # Go down the ancestors to check if it is owned directly. The check
           # stops when we reach Object or the end of ancestors tree.
-          constant = constant.ancestors.inject do |const, ancestor|
+          constant = constant.ancestors.inject(constant) do |const, ancestor|
             break const    if ancestor == Object
             break ancestor if ancestor.const_defined?(name, false)
             const
