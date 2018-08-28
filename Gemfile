@@ -1,4 +1,4 @@
-ruby '2.3.3'
+ruby '2.5.1'
 #ruby-gemset=endpoint-flux
 
 source 'https://rubygems.org'
