@@ -529,8 +529,10 @@ module Middlewares
 end      
 ```
 
-Also you can add a custom status to the response body by using directive `decorator :add_status, {status_number}`, 
+You can add a custom status to the response body by using directive `decorator :add_status, {status_number}`, 
 for example `decorator :add_status, 200`.
+Also you can skip this middleware in the Endpoint class by `decorator :skip` directive
+
 
 
 ### Decorators
