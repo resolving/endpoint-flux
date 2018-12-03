@@ -177,7 +177,9 @@ end
 
 ### Routing
 
-EndpointFlux uses existed Rails routing to map URLs to controllers.
+EndpointFlux has Rails helper - 
+[`present`](https://github.com/resolving/endpoint-flux/blob/master/lib/endpoint_flux/rails/concerns/endpoint_controller.rb), 
+which integrates with Rails controllers. So, you can use the default Rails routing system to define routes.
 
 ```ruby
 Rails.application.routes.draw do
@@ -185,36 +187,29 @@ Rails.application.routes.draw do
 end
 ```
 
+```ruby
+class UsersController < ApplicationController
+  def index
+    present 'users/index' # it dispatches to Endpoints::Users::Index endpoint class.
+  end  
+end
+```
+
 Or if you're using it in not Rails application, you can implement the middleware for providing
 such data to Endpoints namespace, for example:
 
 ```ruby
-class BaseWorker
-  def self.endpoint_namespace(namespace = nil)
-    @endpoint_namespace = namespace if namespace
-
-    @endpoint_namespace
-  end
-
-  def process(msg, options)
+class BaseHandler
+  def process(msg, options, namespace)
     params   = JSON.parse(msg)
-    action   = self.class.endpoint_action || options[:headers]['action']
-    endpoint = endpoint_for("#{self.class.endpoint_namespace}/#{action}")
+    action   = options[:headers]['action']
+    endpoint = endpoint_for("#{namespace}/#{action}")
 
     _, response = endpoint.perform(request_object(params))
 
     response.body
   end
-
-  def work_with_params(msg, _, props) # for Sneakers worker
-    respond = process(msg, props)
-
-    ack!
-  rescue StandardError => e
-    params_to_log = { props: props, message: msg }
-    handle_errors(e, params_to_log)
-  end
-
+  
   private
 
   def endpoint_for(namespace)
@@ -228,11 +223,6 @@ class BaseWorker
   def request_object(params)
     ::EndpointFlux::Request.new(headers: {}, params: params.to_h.deep_symbolize_keys!)
   end
-
-  def handle_errors(error, attrs)
-    logger.error "#{error.message}, attrs: #{attrs}"
-    logger.error error.backtrace.to_s
-  end
 end
 ```
 
@@ -244,7 +234,7 @@ Controllers are simple endpoints for HTTP. They don't have any business logic an
 ```ruby
 class UsersController < ApplicationController
   def index
-    present 'users/index' # it dispatches to Endpoints::Users::Create endpoint class.
+    present 'users/index' # it dispatches to Endpoints::Users::Index endpoint class.
   end  
 end
 ```
@@ -303,7 +293,7 @@ Also you can add your own middleware class to this flow or change the order. It'
 # app/endpoint_flux/endpoints/users/index.rb
 
 module Endpoints
-  module Complaints
+  module Users
     module Index
       include EndpointFlux::Endpoint
       # define new flow with `new_middleware` only for this endpoint
