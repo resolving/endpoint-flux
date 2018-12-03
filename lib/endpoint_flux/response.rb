@@ -8,7 +8,7 @@ module EndpointFlux
     attr_accessor :body, :headers
 
     def success?
-      body[:status].between?(200, 209)
+      body[:status] && body[:status].between?(200, 209)
     end
 
     def invalid?
