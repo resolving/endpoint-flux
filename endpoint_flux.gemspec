@@ -5,13 +5,14 @@ Gem::Specification.new do |s|
   s.version       = EndpointFlux::VERSION
   s.summary       = 'EndpointFlux!'
   s.description   = 'A simple way to organise API endpoints'
-  s.authors       = ['Arturs Kreipans']
+  s.authors       = ['Arturs Kreipans https://github.com/fragallia']
   s.files         = `git ls-files`.split($\)
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ['lib']
   s.homepage      = 'http://rubygems.org/gems/endpoint-flux'
   s.license       = 'MIT'
+  s.required_ruby_version = '>= 2.5.1'
 
-  s.add_development_dependency 'byebug'
-  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'byebug', '>= 9.0'
+  s.add_development_dependency 'rspec', '>= 3.5.0'
 end
