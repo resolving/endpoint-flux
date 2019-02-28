@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    endpoint-flux (0.0.0)
+    endpoint-flux (1.1.3)
 
 GEM
   remote: https://rubygems.org/
@@ -26,12 +26,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
+  byebug (>= 9.0)
   endpoint-flux!
-  rspec
+  rspec (>= 3.5.0)
 
 RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.4
+   1.16.6

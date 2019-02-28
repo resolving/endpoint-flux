@@ -1,13 +1,15 @@
 module EndpointFlux
   class Request
-    def initialize(headers: {}, params: {}, namespace: nil)
+    def initialize(headers: {}, remote_ip: '', params: {}, namespace: nil)
       @headers = headers
+      @remote_ip = remote_ip
       @params = params
       @namespace = namespace
     end
 
     attr_accessor :params
     attr_accessor :headers
+    attr_accessor :remote_ip
     attr_accessor :namespace
     attr_accessor :endpoint
     attr_accessor :scope
