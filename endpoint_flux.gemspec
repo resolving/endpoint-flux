@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.files         = `git ls-files`.split($\)
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ['lib']
-  s.homepage      = 'http://rubygems.org/gems/endpoint-flux'
+  s.homepage      = 'https://github.com/resolving/endpoint-flux'
   s.license       = 'MIT'
-  s.required_ruby_version = '>= 2.5.1'
+  s.required_ruby_version = '>= 2.5.3'
 
   s.add_development_dependency 'byebug', '>= 9.0'
   s.add_development_dependency 'rspec', '>= 3.5.0'
