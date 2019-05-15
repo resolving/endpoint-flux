@@ -31,6 +31,7 @@ module EndpointFlux
 
     def method_missing(method_id, *attrs, &block)
       method_sym = method_id.to_sym
+      puts "========= EndpointFlux::Endpoint method_missing #{method_id} ===="
       if flow.include?(method_sym)
         configure_middleware(method_sym, attrs, &block)
       else

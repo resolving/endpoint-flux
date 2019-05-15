@@ -25,6 +25,7 @@ module EndpointFlux
     end
 
     def constantize(camel_cased_word)
+      puts "========= EndpointFlux::ClassLoader constantize #{camel_cased_word} ===="
       names = camel_cased_word.split("::".freeze)
 
       # Trigger a built-in NameError exception including the ill-formed constant in the message.
@@ -34,6 +35,7 @@ module EndpointFlux
       names.shift if names.size > 1 && names.first.empty?
 
       names.inject(Object) do |constant, name|
+        puts "========= EndpointFlux::ClassLoader constantize.names.inject #{constant} #{name} ===="
         if constant == Object
           constant.const_get(name)
         else
