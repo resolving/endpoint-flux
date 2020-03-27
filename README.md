@@ -7,6 +7,8 @@ A simple way to organise API endpoints
 
 [![Known Vulnerabilities](https://snyk.io/test/github/pavelkvasnikov/endpoint-flux/badge.svg?targetFile=Gemfile.lock)](https://snyk.io/test/github/pavelkvasnikov/endpoint-flux?targetFile=Gemfile.lock)
 
+[![codecov](https://codecov.io/gh/pavelkvasnikov/endpoint-flux/branch/master/graph/badge.svg)](https://codecov.io/gh/pavelkvasnikov/endpoint-flux)
+
 ## Index
 - [Projects code organisation](#projects-code-organisation)
 - [Usage](#usage)
