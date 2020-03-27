@@ -2,7 +2,7 @@
 A simple way to organise API endpoints
 
 [![Gem Version](https://badge.fury.io/rb/endpoint-flux.svg)](http://badge.fury.io/rb/endpoint-flux)
-[![CircleCI](https://circleci.com/gh/pavelkvasnikov/endpoint_flux.svg?style=svg)](https://app.circleci.com/pipelines/github/pavelkvasnikov/endpoint-flux)
+[![CircleCI](https://circleci.com/gh/pavelkvasnikov/endpoint-flux.svg?style=svg)](https://app.circleci.com/pipelines/github/pavelkvasnikov/endpoint-flux)
 
 
 ## Index
