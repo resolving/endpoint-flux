@@ -2,8 +2,10 @@
 A simple way to organise API endpoints
 
 [![Gem Version](https://badge.fury.io/rb/endpoint-flux.svg)](http://badge.fury.io/rb/endpoint-flux)
+
 [![CircleCI](https://circleci.com/gh/pavelkvasnikov/endpoint-flux.svg?style=svg)](https://app.circleci.com/pipelines/github/pavelkvasnikov/endpoint-flux)
 
+[![Known Vulnerabilities](https://snyk.io/test/github/pavelkvasnikov/endpoint-flux/badge.svg?targetFile=Gemfile.lock)](https://snyk.io/test/github/pavelkvasnikov/endpoint-flux?targetFile=Gemfile.lock)
 
 ## Index
 - [Projects code organisation](#projects-code-organisation)
