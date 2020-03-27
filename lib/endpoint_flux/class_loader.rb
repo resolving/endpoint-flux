@@ -5,7 +5,7 @@ module EndpointFlux
     def load_class(klass_name)
       return klass_name if klass_name.is_a?(Class)
 
-      constantize('::' + string_to_class_name(klass_name.to_s))
+      constantize "::#{string_to_class_name(klass_name.to_s)}"
     rescue NameError
       nil
     end
