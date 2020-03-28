@@ -2,6 +2,7 @@
 A simple way to organise API endpoints
 
 **Feedback is welcome**
+
 **Stars are welcome**
 
 ![Logo](https://github.com/pavelkvasnikov/endpoint-flux/blob/master/logo.svg)
