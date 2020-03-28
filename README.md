@@ -5,7 +5,7 @@ A simple way to organise API endpoints
 
 **Stars are welcome**
 
-![Logo](https://raw.githubusercontent.com/pavelkvasnikov/endpoint-flux/master/logo.svg)
+![Logo](https://github.com/pavelkvasnikov/endpoint-flux/blob/master/logo.svg)
 
 [![Gem Version](https://badge.fury.io/rb/endpoint-flux.svg)](http://badge.fury.io/rb/endpoint-flux)
 
