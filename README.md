@@ -13,6 +13,8 @@ Telegram group https://t.me/endpoint_flux
 
 [![CircleCI](https://circleci.com/gh/pavelkvasnikov/endpoint-flux.svg?style=svg)](https://app.circleci.com/pipelines/github/pavelkvasnikov/endpoint-flux)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+
 [![Known Vulnerabilities](https://snyk.io/test/github/pavelkvasnikov/endpoint-flux/badge.svg?targetFile=Gemfile.lock)](https://snyk.io/test/github/pavelkvasnikov/endpoint-flux?targetFile=Gemfile.lock)
 
 [![codecov](https://codecov.io/gh/pavelkvasnikov/endpoint-flux/branch/master/graph/badge.svg)](https://codecov.io/gh/pavelkvasnikov/endpoint-flux)
