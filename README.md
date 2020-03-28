@@ -9,6 +9,8 @@ A simple way to organise API endpoints
 
 [![codecov](https://codecov.io/gh/pavelkvasnikov/endpoint-flux/branch/master/graph/badge.svg)](https://codecov.io/gh/pavelkvasnikov/endpoint-flux)
 
+![dependabot](https://badgen.net/dependabot/pavelkvasnikov/endpoint-flux/?icon=dependabot)
+
 ## Index
 - [Projects code organisation](#projects-code-organisation)
 - [Usage](#usage)
