@@ -71,5 +71,12 @@ RSpec.describe EndpointFlux::Rails::Concerns::EndpointController do
         subject.request_object
       end
     end
+
+  end
+
+  describe '#endpoint_params' do
+    it 'permits and excepts params' do
+      subject {}
+    end
   end
 end
