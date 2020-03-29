@@ -103,7 +103,7 @@ gem 'endpoint-flux'
 
 And then execute:
 ```bash
-$ bundle
+$ bundle install
 ```
 
 Or install it yourself as:
