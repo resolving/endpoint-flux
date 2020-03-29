@@ -11,7 +11,7 @@
 
 .rspec
 .ruby-*
-
+coverage
 .DS_Store
 .idea
 .dev_secrets

@@ -36,6 +36,9 @@ class LocalIpDummyClass
       env: { 'HTTP_X_FORWARDED_FOR' => '172.18.0.2' }
     )
   end
+
+  def params; end
+
 end
 
 RSpec.describe EndpointFlux::Rails::Concerns::EndpointController do
@@ -75,8 +78,17 @@ RSpec.describe EndpointFlux::Rails::Concerns::EndpointController do
   end
 
   describe '#endpoint_params' do
-    it 'permits and excepts params' do
-      subject {}
+    before do
+      allow(subject).to receive_message_chain(:params, :permit!, :except, :to_h, :deep_symbolize_keys)
+                            .and_return({test: 'test'})
     end
+
+    context 'request' do
+      subject { LocalIpDummyClass.new }
+      it 'permits and excepts params' do
+        expect(subject.endpoint_params).to match({test: 'test'})
+      end
+    end
+
   end
 end
