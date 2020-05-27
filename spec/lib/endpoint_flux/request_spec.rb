@@ -7,6 +7,7 @@ RSpec.describe EndpointFlux::Request do
   it { should respond_to :namespace }
   it { should respond_to :endpoint }
   it { should respond_to :scope }
+  it { should respond_to :trace_id }
 
   describe '#initialize' do
     context 'when all params specified' do
@@ -14,19 +15,22 @@ RSpec.describe EndpointFlux::Request do
       let(:headers) { { header: :val } }
       let(:remote_ip) { '127.0.0.1' }
       let(:namespace) { 'namespace' }
+      let(:trace_id) { 'traceId' }
 
       it 'should set args' do
         request = EndpointFlux::Request.new(
           params: params,
           headers: headers,
           remote_ip: remote_ip,
-          namespace: namespace
+          namespace: namespace,
+          trace_id: trace_id
         )
 
         expect(request.params).to eq params
         expect(request.headers).to eq headers
         expect(request.remote_ip).to eq remote_ip
         expect(request.namespace).to eq namespace
+        expect(request.trace_id).to eq trace_id
       end
 
       context 'when params missed' do
@@ -37,6 +41,7 @@ RSpec.describe EndpointFlux::Request do
           expect(request.headers).to be_empty
           expect(request.remote_ip).to eq ''
           expect(request.namespace).to be_nil
+          expect(request.trace_id).to_not be_nil
         end
       end
     end

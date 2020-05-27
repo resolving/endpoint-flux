@@ -1,3 +1,5 @@
+require 'securerandom'
+
 module EndpointFlux
   class Request
     def initialize(headers: {}, remote_ip: '', params: {}, namespace: nil, trace_id: nil)

@@ -173,6 +173,18 @@ EndpointFlux::Endpoint.class_eval do
     raise EndpointFlux::Exceptions::Validation, errors
   end
 end
+
+EndpointFlux::Request.class_eval do
+  attr_accessor :current_user_params
+
+  define_method(:current_user) do
+    @current_user ||= begin
+      if current_user_params && current_user_params['id']
+        User.find_by(id: current_user_params['id'])
+      end
+    end
+  end
+end
 ```
 
 ### Routing
